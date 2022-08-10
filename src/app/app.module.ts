@@ -14,13 +14,15 @@ import {MatListModule} from '@angular/material/list';
 import { CourseComponent } from './course/course.component';
 import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
+import { TeacherComponent } from './teacher/teacher.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidenavComponent,
     HomeComponent,
-    CourseComponent
+    CourseComponent,
+    TeacherComponent
   ],
   imports: [
     BrowserModule,

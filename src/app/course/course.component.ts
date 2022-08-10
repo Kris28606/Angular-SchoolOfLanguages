@@ -10,7 +10,6 @@ import { CourseService } from '../service/course.service';
 })
 export class CourseComponent implements OnInit {
 
-  datum1: Date=new Date(2022,12,12);
   courses: Course[]=[];
   
   constructor(private courseService: CourseService) { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Teacher } from '../model/teacher';
 
 @Component({
   selector: 'app-teacher',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeacherComponent implements OnInit {
 
+  teachers: Teacher[]=[];
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  updateTeacher(id: number) {
+
+  }
+
+  deleteTeacher(id: number) {
+
+  }
 }

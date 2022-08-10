@@ -1,0 +1,23 @@
+table {
+    margin: auto;
+    background-color: none;
+}
+
+#listaKurseva{
+    width: 60%;
+    vertical-align: middle;
+    margin-right: auto;
+    margin-left: auto;
+}
+h1{
+    padding: 30px;
+    font-size: 30px;
+    text-align: center;
+    
+}
+button {
+    margin-right: 5px;
+}
+td,th{
+    text-align: center;
+}

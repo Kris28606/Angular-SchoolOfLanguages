@@ -1,0 +1,21 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <button mat-button (click)="opened=!opened"><mat-icon style="color:white;">menu</mat-icon></button>
+       <p>School Of Languages</p>
+    </mat-toolbar-row>
+  </mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav [(opened)]="opened" mode="side">
+        <mat-list>
+            <mat-list-item>
+                <mat-icon fontIcon="home" style="color: white;"></mat-icon><p routerLink="/home">Home</p>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon fontIcon="home" style="color: white;"></mat-icon><p routerLink="/course">Course</p>
+            </mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

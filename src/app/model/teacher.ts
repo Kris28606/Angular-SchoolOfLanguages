@@ -2,8 +2,8 @@ import { City } from "./city";
 
 export class Teacher {
     id: number=0;
-    firstName: String='';
-    lastName: String='';
+    first_name: String='';
+    last_name: String='';
     address: String='';
     contact: String='';
     city!: City;

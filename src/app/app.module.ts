@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,10 +12,12 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { SidenavComponent } from './menu/side-nav/sidenav.component';
 import { HomeComponent } from './home/home.component';
 import {MatListModule} from '@angular/material/list';
-import { CourseComponent } from './course/course.component';
 import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
-import { TeacherComponent } from './teacher/teacher.component';
+import { CourseModalComponent } from './course/componenets/course-modal/course-modal.component';
+import { TeacherComponent } from './teacher/components/teacher.component';
+import { CourseComponent } from './course/componenets/course/course.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { TeacherComponent } from './teacher/teacher.component';
     SidenavComponent,
     HomeComponent,
     CourseComponent,
-    TeacherComponent
+    TeacherComponent,
+    CourseModalComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,9 @@ import { TeacherComponent } from './teacher/teacher.component';
     MatSidenavModule,
     MatListModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

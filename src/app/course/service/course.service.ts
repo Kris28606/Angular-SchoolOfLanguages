@@ -16,6 +16,9 @@ export class CourseService {
   getCourseList() : Observable<Course[]> {
     return this.httpClient.get<Course[]>(this.baseURL+"/all");
   }
+  saveCourse(course: Course):Observable<Object>{
+    return this.httpClient.post<Object>(this.baseURL+"/new", course);
+  }
 
   deleteCourse(id: number): Observable<Object> {
     return this.httpClient.delete<Object>(`${this.baseURL}/${id}`);

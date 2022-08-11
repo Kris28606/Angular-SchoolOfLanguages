@@ -1,0 +1,40 @@
+table {
+    margin: auto;
+    background-color: none;
+}
+
+#listaKurseva{
+    width: 60%;
+    vertical-align: middle;
+    margin-right: auto;
+    margin-left: auto;
+}
+h1{
+    padding-top: 30px;
+    font-size: 30px;
+    text-align: center;
+    
+}
+button {
+    margin-right: 5px;
+}
+td,th{
+    text-align: center;
+}
+#newButton{
+    background-color: #dcacff; 
+    vertical-align: middle;
+    margin-left: auto; 
+    margin-right: auto;
+    justify-content: center;
+    width: 100%;
+}
+
+#newButtonDiv{
+    padding-bottom: 15px;
+}
+
+#newButton:hover{
+    background-color: #cd86ff; 
+    height: 110%;
+}

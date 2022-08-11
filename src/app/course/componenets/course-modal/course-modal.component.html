@@ -1,0 +1,22 @@
+<div id="modal">
+    <h1>New Course</h1>
+    <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="course.name">
+    <label for="floatingInput">Name</label>
+  </div>
+  <div class="form-floating mb-2">
+    <input type="number" min=5000 class="form-control"  id="floatingPrice" [(ngModel)]="course.price">
+    <label for="floatingPrice">Price</label>
+  </div>
+  <div class="form-floating mb-2 datepicker">
+    <input type="date" id="floatingStartDate" class="form-control" [(ngModel)]="course.startDate">
+    <label for="floatingStartDate">Start date</label>
+  </div>
+  <div class="form-floating mb-2 datepicker">
+    <input type="date" id="floatingEndDate" class="form-control" [(ngModel)]="course.endDate">
+    <label for="floatingEndDate">End date</label>
+  </div>
+  <div class="form-floating mb-2">
+    <button id="saveButton" class="btn" (click)="fetchData()">Save</button>
+  </div>
+</div>

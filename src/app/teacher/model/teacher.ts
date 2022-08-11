@@ -1,4 +1,5 @@
-import { City } from "./city";
+import { City } from "src/app/model/city";
+
 
 export class Teacher {
     id: number=0;

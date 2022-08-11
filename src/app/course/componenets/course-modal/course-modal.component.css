@@ -1,0 +1,17 @@
+#modal{
+    width: 400px;
+}
+h1{
+    font-size: 25px;
+    text-align: center;
+    
+}
+
+#saveButton{
+    background-color: #dcacff; 
+    vertical-align: middle;
+    margin-left: auto; 
+    margin-right: auto;
+    justify-content: center;
+    width: 100%;
+}

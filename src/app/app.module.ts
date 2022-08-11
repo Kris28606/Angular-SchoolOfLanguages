@@ -18,6 +18,7 @@ import { CourseModalComponent } from './course/componenets/course-modal/course-m
 import { TeacherComponent } from './teacher/components/teacher.component';
 import { CourseComponent } from './course/componenets/course/course.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { UpdateModalComponent } from './course/componenets/update-modal/update-modal.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     HomeComponent,
     CourseComponent,
     TeacherComponent,
-    CourseModalComponent
+    CourseModalComponent,
+    UpdateModalComponent
   ],
   imports: [
     BrowserModule,

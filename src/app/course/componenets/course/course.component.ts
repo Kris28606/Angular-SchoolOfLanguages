@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { Course } from '../../model/course';
 import { CourseService } from '../../service/course.service';
 import { CourseModalComponent } from '../course-modal/course-modal.component';
+import { UpdateModalComponent } from '../update-modal/update-modal.component';
 
 @Component({
   selector: 'app-course',
@@ -40,8 +41,15 @@ export class CourseComponent implements OnInit {
     });
   }
 
-  updateCourse(id: number) {
+  updateCourse(course: Course) {
 
+    const dialogRef = this.dialog.open(UpdateModalComponent, {
+      data: course
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getCourses();
+    });
   }
 
   deleteCourse(id: number) {

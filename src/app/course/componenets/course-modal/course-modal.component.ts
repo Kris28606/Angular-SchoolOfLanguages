@@ -1,4 +1,5 @@
 import { Dialog } from '@angular/cdk/dialog';
+import { HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -34,10 +35,18 @@ export class CourseModalComponent implements OnInit {
         timer: 1500
       })
     }, error=> {
+      if(error.status==HttpStatusCode.BadRequest) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: "Course alredy exist!"
+        });
+        return;
+      }
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: "Something went wrong, can't save course!"
+        text: "Server has stopped working!"
       });
     });
   }

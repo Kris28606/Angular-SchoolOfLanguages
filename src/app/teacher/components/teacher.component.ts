@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Teacher } from '../model/teacher';
 import { TeacherService } from '../service/teacher.service';
 
@@ -10,15 +11,17 @@ import { TeacherService } from '../service/teacher.service';
 export class TeacherComponent implements OnInit {
 
   teachers: Teacher[]=[];
-  constructor(private teacherService: TeacherService) { }
+  constructor(private teacherService: TeacherService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getAllTeachers();
   }
 
   getAllTeachers() {
-    this.teacherService.getCourseList().subscribe(data => {
+    this.teacherService.getTeacherList().subscribe(data => {
       this.teachers=data;
+      console.log(this.teachers[0].courses);
     }, error=>console.log(error));
   }
 
@@ -28,5 +31,9 @@ export class TeacherComponent implements OnInit {
 
   deleteTeacher(id: number) {
 
+  }
+
+  openForm() {
+    this.router.navigate(['new-teacher']);
   }
 }

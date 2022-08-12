@@ -19,6 +19,10 @@ import { TeacherComponent } from './teacher/components/teacher.component';
 import { CourseComponent } from './course/componenets/course/course.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { UpdateModalComponent } from './course/componenets/update-modal/update-modal.component';
+import { NewTeacherComponent } from './teacher/components/newTeacher/new-teacher/new-teacher.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSelectModule} from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import { UpdateModalComponent } from './course/componenets/update-modal/update-m
     CourseComponent,
     TeacherComponent,
     CourseModalComponent,
-    UpdateModalComponent
+    UpdateModalComponent,
+    NewTeacherComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,10 @@ import { UpdateModalComponent } from './course/componenets/update-modal/update-m
     MatTableModule,
     HttpClientModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

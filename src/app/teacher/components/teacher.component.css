@@ -10,7 +10,7 @@ table {
     margin-left: auto;
 }
 h1{
-    padding: 30px;
+    padding-top: 10px;
     font-size: 30px;
     text-align: center;
     
@@ -20,4 +20,13 @@ button {
 }
 td,th{
     text-align: center;
+}
+#newButton{
+    background-color: #dcacff; 
+    vertical-align: middle;
+    margin-left: auto; 
+    margin-right: auto;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 15px;
 }

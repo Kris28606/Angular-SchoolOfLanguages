@@ -1,5 +1,8 @@
 <div id="listaPredavaca">
     <h1>Teachers list</h1>
+    <div id="newButtonDiv">
+        <button id="newButton" class="btn" (click)="openForm()">New teacher</button>
+    </div>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -19,7 +22,7 @@
                 <td>{{teacher.city.name}}</td>
                 <td>
                     <button (click)="updateTeacher(teacher.id)" class="btn btn-info">Update</button>
-                    <button (click)="deleteTeacher(teacher.id)" class="btn btn-danger">Delete</button>
+                    <!-- <button (click)="deleteTeacher(teacher.id)" class="btn btn-danger">Delete</button> -->
                 </td>
             </tr>
         </tbody>

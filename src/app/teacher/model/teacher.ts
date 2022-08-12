@@ -1,4 +1,5 @@
-import { City } from "src/app/model/city";
+import { City } from "src/app/city/model/city";
+import { Course } from "src/app/course/model/course";
 
 
 export class Teacher {
@@ -8,4 +9,5 @@ export class Teacher {
     address: String='';
     contact: String='';
     city!: City;
+    courses: Course[]=[];
 }

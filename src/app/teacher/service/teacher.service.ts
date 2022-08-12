@@ -13,7 +13,11 @@ export class TeacherService {
     this.baseURL= "http://localhost:8080/teacher";
   }
 
-  getCourseList() : Observable<Teacher[]> {
+  getTeacherList() : Observable<Teacher[]> {
     return this.httpClient.get<Teacher[]>(this.baseURL+"/all");
+  }
+
+  saveTeacher(t : Teacher): Observable<Object> {
+    return this.httpClient.post<Object>(this.baseURL+'/new', t);
   }
 }

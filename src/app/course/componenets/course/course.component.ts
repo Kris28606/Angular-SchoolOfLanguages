@@ -67,19 +67,31 @@ export class CourseComponent implements OnInit {
             console.log(data);
           Swal.fire(
           'Deleted!',
-          'Your file has been deleted.',
+          'Course has been deleted.',
           'success'
           );
           this.getCourses();
           },error => {
-            console.error(error);
+            if(error.status==HttpStatusCode.BadRequest) {
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Cannot delete the course!!'
+              });
+              return;
+            }
             Swal.fire({
               icon: 'error',
               title: 'Oops...',
-              text: 'Something went wrong!'
+              text: "Server has stopped working!"
             });
+            this.goToTheStopPage();
       });
       }
     })
+  }
+
+  goToTheStopPage() {
+    
   }
 }

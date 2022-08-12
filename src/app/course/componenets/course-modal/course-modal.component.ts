@@ -48,7 +48,12 @@ export class CourseModalComponent implements OnInit {
         title: 'Oops...',
         text: "Server has stopped working!"
       });
+      this.goToTheStopPage();
     });
+  }
+
+  goToTheStopPage() {
+    
   }
 
 }

@@ -27,4 +27,8 @@ export class CourseService {
   updateCourse(course: Course): Observable<Object> {
     return this.httpClient.put<Object>(`${this.baseURL}/${course.id}`, course);
   }
+
+  getCourse(id: number):Observable<Course> {
+    return this.httpClient.get<Course>(`${this.baseURL}/one/${id}`);
+  }
 }

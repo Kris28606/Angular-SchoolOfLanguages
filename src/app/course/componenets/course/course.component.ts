@@ -44,7 +44,7 @@ export class CourseComponent implements OnInit {
   updateCourse(course: Course) {
 
     const dialogRef = this.dialog.open(UpdateModalComponent, {
-      data: course
+      data: course.id
     });
 
     dialogRef.afterClosed().subscribe(result => {

@@ -23,6 +23,7 @@ import { NewTeacherComponent } from './teacher/components/newTeacher/new-teacher
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     MatCheckboxModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DatePipe
   ],
   providers: [],
   bootstrap: [AppComponent]

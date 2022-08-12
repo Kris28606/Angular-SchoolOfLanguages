@@ -1,5 +1,7 @@
+import { DatePipe } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Course } from '../../model/course';
 import { CourseService } from '../../service/course.service';
@@ -12,12 +14,32 @@ import { CourseService } from '../../service/course.service';
 export class UpdateModalComponent implements OnInit {
 
   course: Course=new Course();
+  id: number=0;
   
   constructor(@Inject(MAT_DIALOG_DATA) public data:any,
-  private courseService: CourseService) { }
+  private courseService: CourseService,
+  private router: Router) { }
 
   ngOnInit(): void {
-    this.course=this.data;
+    this.id=this.data;
+    this.ucitajKurs();
+  }
+
+  ucitajKurs() {
+    this.courseService.getCourse(this.id).subscribe(data=> {
+      this.course=data;
+    },error=> {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: "Can't view course!"
+      });
+      this.goToCoursePage();
+    });
+  }
+
+  goToCoursePage() {
+    
   }
 
   fetchData() {

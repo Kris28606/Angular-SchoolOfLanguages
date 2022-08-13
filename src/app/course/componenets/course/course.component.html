@@ -2,6 +2,8 @@
     <h1>Course list</h1>
     <div id="newButtonDiv">
         <button id="newButton" class="btn" (click)="openDialog()">New course</button>
+        <button id="searchButton" class="btn" (click)="showInput()">Search</button>
+        <input class="form-control" *ngIf="inputVisible" type="text" name="search" (keyup)="onChange()" [(ngModel)]="pomocni.kriterijum">
     </div>
     <table class="table table-striped">
         <thead>

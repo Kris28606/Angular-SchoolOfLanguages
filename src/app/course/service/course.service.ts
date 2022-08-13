@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Pomocni } from 'src/app/pomocni/pomocni';
 import { Course } from '../model/course';
 
 @Injectable({
@@ -30,5 +31,9 @@ export class CourseService {
 
   getCourse(id: number):Observable<Course> {
     return this.httpClient.get<Course>(`${this.baseURL}/one/${id}`);
+  }
+
+  find(pomocni: Pomocni):Observable<Course[]> {
+    return this.httpClient.post<Course[]>(this.baseURL+"/find", pomocni);
   }
 }

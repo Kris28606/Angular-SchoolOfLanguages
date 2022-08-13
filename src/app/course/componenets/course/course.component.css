@@ -22,13 +22,14 @@ button {
 td,th{
     text-align: center;
 }
-#newButton{
+#newButton, #searchButton {
     background-color: #dcacff; 
     vertical-align: middle;
     margin-left: auto; 
     margin-right: auto;
     justify-content: center;
     width: 100%;
+    margin-bottom: 15px;
 }
 
 #newButtonDiv{

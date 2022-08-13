@@ -1,6 +1,7 @@
 import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Pomocni } from 'src/app/pomocni/pomocni';
 import Swal from 'sweetalert2';
 import { Course } from '../../model/course';
 import { CourseService } from '../../service/course.service';
@@ -15,6 +16,7 @@ import { UpdateModalComponent } from '../update-modal/update-modal.component';
 export class CourseComponent implements OnInit {
 
   courses: Course[]=[];
+  pomocni: Pomocni=new Pomocni();
   
   constructor(private courseService: CourseService,private dialog: MatDialog) { }
 
@@ -28,6 +30,16 @@ export class CourseComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.getCourses();
     });
+  }
+
+  onChange() {
+    if(this.pomocni.kriterijum!="") {
+      this.courseService.find(this.pomocni).subscribe(data=> {
+        this.courses=data;
+      });
+    } else {
+      this.getCourses();
+    }
   }
 
   getCourses() {
@@ -50,6 +62,15 @@ export class CourseComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.getCourses();
     });
+  }
+
+  inputVisible: boolean=false;
+  showInput() {
+    this.inputVisible=!this.inputVisible;
+    if(!this.inputVisible) {
+      this.getCourses();
+      this.pomocni.kriterijum='';
+    }
   }
 
   deleteCourse(id: number) {

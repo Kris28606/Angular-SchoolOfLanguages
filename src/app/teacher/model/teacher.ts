@@ -10,4 +10,5 @@ export class Teacher {
     contact: String='';
     city!: City;
     courses: Course[]=[];
+    content: String='';
 }

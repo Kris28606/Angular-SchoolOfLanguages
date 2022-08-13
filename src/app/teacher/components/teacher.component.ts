@@ -24,7 +24,18 @@ export class TeacherComponent implements OnInit {
     this.teacherService.getTeacherList().subscribe(data => {
       this.teachers=data;
       console.log("Pokupio predavace");
+      this.srediKurseve();
     }, error=>console.log(error));
+  }
+
+  srediKurseve() {
+    for (let teacher of this.teachers) {
+      teacher.content='';
+      for(let i=0;i<teacher.courses.length;i++) {
+        teacher.content+=teacher.courses[i].name+", ";
+      }
+      teacher.content=teacher.content.substring(0,teacher.content.length-2);
+    }
   }
 
   updateTeacher(id: number) {
@@ -40,6 +51,7 @@ export class TeacherComponent implements OnInit {
     this.inputVisible=!this.inputVisible;
     if(!this.inputVisible) {
       this.getAllTeachers();
+      this.pomocni.kriterijum='';
     }
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Pomocni } from 'src/app/pomocni/pomocni';
 import { Teacher } from '../model/teacher';
 import { TeacherService } from '../service/teacher.service';
 
@@ -11,6 +12,7 @@ import { TeacherService } from '../service/teacher.service';
 export class TeacherComponent implements OnInit {
 
   teachers: Teacher[]=[];
+  pomocni: Pomocni=new Pomocni();
   constructor(private teacherService: TeacherService,
     private router: Router) { }
 
@@ -21,7 +23,7 @@ export class TeacherComponent implements OnInit {
   getAllTeachers() {
     this.teacherService.getTeacherList().subscribe(data => {
       this.teachers=data;
-      console.log(this.teachers[0].courses);
+      console.log("Pokupio predavace");
     }, error=>console.log(error));
   }
 
@@ -31,6 +33,26 @@ export class TeacherComponent implements OnInit {
 
   deleteTeacher(id: number) {
 
+  }
+
+  inputVisible: boolean=false;
+  showInput() {
+    this.inputVisible=!this.inputVisible;
+    if(!this.inputVisible) {
+      this.getAllTeachers();
+    }
+  }
+
+  onChange() {
+    console.log(this.pomocni.kriterijum);
+    if(this.pomocni.kriterijum!="") {
+      this.teacherService.findTeachers(this.pomocni).subscribe( data=> {
+        this.teachers=data;
+        console.log(this.teachers);
+      })
+    } else {
+      this.getAllTeachers();
+    }
   }
 
   openForm() {

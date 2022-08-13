@@ -1,12 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Pomocni } from 'src/app/pomocni/pomocni';
 import { Teacher } from '../model/teacher';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TeacherService {
+  findTeachers(kriterijum: Pomocni):Observable<Teacher[]> {
+    return this.httpClient.post<Teacher[]>(this.baseURL+"/find", kriterijum);
+  }
 
   updateTeacher(id: number, teacher: Teacher):Observable<Object> {
     return this.httpClient.put<Teacher>(`${this.baseURL}/update/${id}`,teacher);

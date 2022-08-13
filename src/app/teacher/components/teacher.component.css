@@ -21,7 +21,7 @@ button {
 td,th{
     text-align: center;
 }
-#newButton{
+#newButton, #searchButton{
     background-color: #dcacff; 
     vertical-align: middle;
     margin-left: auto; 

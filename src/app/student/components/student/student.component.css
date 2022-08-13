@@ -1,6 +1,6 @@
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 370px);
+    grid-template-columns: repeat(auto-fit,370px);
   }
 
   .item {
@@ -9,6 +9,30 @@
     border: 3px solid #c592f1;
     color: #000000;
     padding: 5px;
+  }
+
+  h1 {
+    justify-content: center;
+    text-align: center;
+    font-size: xx-large;
+    margin: 15px;
+  }
+
+  #deleteButton{
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    text-align: center;
+    font-size: medium;
+  }
+
+  #deleteButton button{
+    background-color: #c592f1;
+    margin: 3px;
+  }
+
+  #deleteButton button:hover{
+    background-color: #bf76ff;
   }
 
   #slika {

@@ -1,26 +1,32 @@
 <h1>Students</h1>
 <div class="container">
-    <div class="item">
+    <div class="item" *ngFor="let student of students">
         <div class="red">
             <div id="slika">
-                <img src="">
+                <img src={{student.slika}} style="width: 135px; height:135px;">
             </div>
             <div class="row">
-                <p style="font-size: xx-large"></p>
-                <p style="font-size: xx-large;"></p>
-                <p style="font-size: medium; margin-top: 14px"></p>
+                <p style="font-size: xx-large">{{student.firstName}}</p>
+                <p style="font-size: xx-large;">{{student.lastName}}</p>
+                <p style="font-size: medium; margin-top: 14px">{{student.years}} years old</p>
             </div>
         </div>
         <div class="kursevi">
             <mat-expansion-panel (opened)="panelOpenState = true"
-                    (closed)="panelOpenState = false" style="width: 253%">
+                    (closed)="panelOpenState = false" style="width: 320px">
             <mat-expansion-panel-header>
                 <mat-panel-title>
                     Courses
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            <p></p>
+            <div *ngFor="let course of student.courses">
+                <p>{{course.name}}</p>
+            </div>
             </mat-expansion-panel>
         </div>
+        <div id="deleteButton">
+            <button class="btn" (click)="deleteStudent(student.id)">Delete</button>
+        </div>
+
     </div>
 </div>

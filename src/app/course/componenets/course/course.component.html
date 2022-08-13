@@ -12,6 +12,7 @@
                 <th>Price</th>
                 <th>Start date</th>
                 <th>End date</th>
+                <th>Photo</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +21,7 @@
                 <td>{{course.price}}</td>
                 <td>{{course.startDate | date: 'dd.MM.yyyy.'}}</td>
                 <td>{{course.endDate | date:'dd.MM.yyyy.'}}</td>
+                <td><img src="https://th.bing.com/th/id/R.f0372937fd055d3c20ec01ba68491ecb?rik=1G1Ew74Uemmb2Q&pid=ImgRaw&r=0" style="width: 40px; height: 40px;"></td>
                 <td>
                     <button (click)="updateCourse(course)" class="btn btn-info">Update</button>
                     <!-- <button (click)="deleteCourse(course.id)" class="btn btn-danger">Delete</button> -->

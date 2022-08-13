@@ -24,6 +24,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { StudentComponent } from './student/components/student/student.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { DatePipe } from '@angular/common';
     TeacherComponent,
     CourseModalComponent,
     UpdateModalComponent,
-    NewTeacherComponent
+    NewTeacherComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { DatePipe } from '@angular/common';
     MatCheckboxModule,
     MatSelectModule,
     ReactiveFormsModule,
-    DatePipe
+    DatePipe,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

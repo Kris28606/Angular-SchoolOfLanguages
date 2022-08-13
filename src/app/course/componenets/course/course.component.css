@@ -36,6 +36,10 @@ td,th{
     padding-bottom: 15px;
 }
 
+td {
+    justify-content: center;
+}
+
 #newButton:hover{
     background-color: #cd86ff; 
     height: 110%;

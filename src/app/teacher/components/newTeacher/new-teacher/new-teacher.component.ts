@@ -2,6 +2,7 @@ import { HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatListOption } from '@angular/material/list';
+import { ActivatedRoute, Router } from '@angular/router';
 import { City } from 'src/app/city/model/city';
 import { CityService } from 'src/app/city/service/city.service';
 import { Course } from 'src/app/course/model/course';
@@ -18,13 +19,17 @@ import Swal from 'sweetalert2';
 export class NewTeacherComponent implements OnInit {
 
   constructor(private cityService: CityService,
-    private courseService: CourseService, private teacherService: TeacherService) { }
+    private courseService: CourseService, 
+    private teacherService: TeacherService,
+    private router: Router, private route: ActivatedRoute) { }
   cities: City[]=[];
   selectedValue: City=new City();
   teacher: Teacher=new Teacher();
   courses: Course[]=[];
   kursevi: Course[]=[];
   brojac: number=0;
+  id: number=0;
+  isUpdate: boolean=false;
   
 
   ngOnInit(): void {
@@ -40,14 +45,18 @@ export class NewTeacherComponent implements OnInit {
     }, error=> {
       console.log(error);
     });
-    
+    this.id=this.route.snapshot.params['id'];
+    if(this.id!=undefined) {
+      this.isUpdate=true;
+      this.teacherService.getOne(this.id).subscribe(data=> {
+        this.teacher=data;
+        this.selectedValue=this.teacher.city;
+        this.podesiKurseve();
+      });
+    }
   }
 
   courseList: pomocni[]=[];
-  
-  onChange() {
-    console.log(this.courseList);
-  }
 
   saveTeacher() {
     console.log(this.teacher);
@@ -60,10 +69,11 @@ export class NewTeacherComponent implements OnInit {
       Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Teacher has been saved',
+        title: 'Teacher has been saved!',
         showConfirmButton: false,
         timer: 1500
       })
+      this.goToTeacherPage();
     },error=> {
       if(error.status==HttpStatusCode.BadRequest) {
         Swal.fire({
@@ -71,6 +81,7 @@ export class NewTeacherComponent implements OnInit {
           title: 'Oops...',
           text: "Teacher alredy exist!"
         });
+        this.goToTeacherPage();
         return;
       }
       Swal.fire({
@@ -82,8 +93,23 @@ export class NewTeacherComponent implements OnInit {
     });
   }
 
+  goToTeacherPage() {
+    this.router.navigate(['teacher']);
+  }
+
   goToTheStopPage() {
 
+  }
+
+  podesiKurseve():Array<pomocni> {
+    for(let i=0;i<this.teacher.courses.length;i++) {
+      for(let j=0;j<this.courseList.length;j++) {
+        if(this.teacher.courses[i].name==this.courseList[j].name) {
+          this.courseList[j].isSelected=true;
+        }
+      }
+    }
+    return this.courseList;
   }
 
   vratiKurseve():Array<Course> {
@@ -96,7 +122,6 @@ export class NewTeacherComponent implements OnInit {
         }
       }
     }
-    console.log(this.kursevi);
     return this.kursevi;
   }
 
@@ -107,6 +132,41 @@ export class NewTeacherComponent implements OnInit {
       this.courseList[i].id=this.courses[i].id;
     }
   }
+
+  updateTeacher() {
+    this.teacher.courses=this.vratiKurseve();
+    this.teacher.city=this.selectedValue;
+    console.log(this.teacher);
+    this.teacherService.updateTeacher(this.teacher.id,this.teacher).subscribe(data=> {
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Teacher has been updated!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      this.goToTeacherPage();
+    },error=> {
+      if(error.status==HttpStatusCode.BadRequest) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: "Teacher alredy exist!"
+        });
+        this.goToTeacherPage();
+        return;
+      }
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: "Server has stopped working!"
+      });
+      this.goToTheStopPage();
+    });
+  }
+
+
+
 }
 
 class pomocni {

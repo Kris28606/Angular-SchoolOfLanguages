@@ -26,7 +26,7 @@ export class TeacherComponent implements OnInit {
   }
 
   updateTeacher(id: number) {
-
+    this.router.navigate(['update-teacher', id]);
   }
 
   deleteTeacher(id: number) {

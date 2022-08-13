@@ -1,5 +1,6 @@
 <div id="noviPredavac">
-    <h1>New Teacher</h1>
+    <h1 *ngIf="!isUpdate">New Teacher</h1>
+    <h1 *ngIf="isUpdate">Update Teacher</h1>
     <form>
         <div class="form-group">
           <label for="inputFirstName">First name</label>
@@ -30,10 +31,11 @@
         </div>
         <div class="form-group mb-2">
            <div *ngFor="let course of courseList" class="container">
-                <input type="checkbox" name="{{course.name}}" (change)="onChange()" [(ngModel)]="course.isSelected">
+                <input type="checkbox" name="{{course.name}}" [(ngModel)]="course.isSelected">
                 <label style="display: inline; margin-left: 5px;">{{course.name}}</label>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary" (click)="saveTeacher()">Save teacher</button>
+        <button type="submit" class="btn btn-primary" (click)="saveTeacher()" *ngIf="!isUpdate">Save teacher</button>
+        <button type="submit" class="btn btn-primary" (click)="updateTeacher()" *ngIf="isUpdate">Update teacher</button>
       </form>
 </div>

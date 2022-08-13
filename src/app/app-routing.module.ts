@@ -17,6 +17,9 @@ const routes: Routes = [
   },
   {
     path: 'new-teacher', component: NewTeacherComponent
+  },
+  {
+    path: 'update-teacher/:id', component: NewTeacherComponent
   }
 ];
 

@@ -1,0 +1,25 @@
+#slika, img {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+h1{
+    position: fixed;
+    top: 50%;
+    left: 35%;
+    font-size: xx-large;
+    background-color: #e8ceff;
+    height: 40px;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+img{
+    margin: 10px;
+}
+*{
+    background-color: #dcb4ff;
+}

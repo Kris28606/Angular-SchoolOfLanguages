@@ -30,20 +30,21 @@ export class NewTeacherComponent implements OnInit {
   brojac: number=0;
   id: number=0;
   isUpdate: boolean=false;
+  error: boolean=false;
   
 
   ngOnInit(): void {
     this.cityService.getAll().subscribe(data=>{
       this.cities=data;
     },error=> {
-      console.log(error);
+      this.error=true;
     });
     this.courseService.getCourseList().subscribe(data=>{
       this.courses=data;
       this.srediPomocni();
       console.log(this.courseList);
     }, error=> {
-      console.log(error);
+      this.error=true;
     });
     this.id=this.route.snapshot.params['id'];
     if(this.id!=undefined) {
@@ -52,8 +53,22 @@ export class NewTeacherComponent implements OnInit {
         this.teacher=data;
         this.selectedValue=this.teacher.city;
         this.podesiKurseve();
+      }, error=> {
+        this.error=true;
       });
+      if(this.error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: "Server has stopped working!"
+        });
+        this.goToTheStopPage();
+      }
     }
+  }
+
+  goToTheStopPage() {
+    this.router.navigate(['server-error']);
   }
 
   courseList: pomocni[]=[];
@@ -97,9 +112,6 @@ export class NewTeacherComponent implements OnInit {
     this.router.navigate(['teacher']);
   }
 
-  goToTheStopPage() {
-
-  }
 
   podesiKurseve():Array<pomocni> {
     for(let i=0;i<this.teacher.courses.length;i++) {

@@ -26,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { StudentComponent } from './student/components/student/student.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { ServerStopComponent } from './serverError/server-stop/server-stop.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     CourseModalComponent,
     UpdateModalComponent,
     NewTeacherComponent,
-    StudentComponent
+    StudentComponent,
+    ServerStopComponent
   ],
   imports: [
     BrowserModule,

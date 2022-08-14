@@ -53,7 +53,7 @@ export class CourseModalComponent implements OnInit {
   }
 
   goToTheStopPage() {
-    
+    this.router.navigate(['server-error']);
   }
 
 }

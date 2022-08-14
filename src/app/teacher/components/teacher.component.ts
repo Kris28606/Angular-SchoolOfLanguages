@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Pomocni } from 'src/app/pomocni/pomocni';
+import Swal from 'sweetalert2';
 import { Teacher } from '../model/teacher';
 import { TeacherService } from '../service/teacher.service';
 
@@ -25,7 +26,18 @@ export class TeacherComponent implements OnInit {
       this.teachers=data;
       console.log("Pokupio predavace");
       this.srediKurseve();
-    }, error=>console.log(error));
+    }, error=>{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: "Server has stopped working!"
+      });
+      this.goToTheStopPage();
+    });
+  }
+
+  goToTheStopPage() {
+    this.router.navigate(['server-error']);
   }
 
   srediKurseve() {

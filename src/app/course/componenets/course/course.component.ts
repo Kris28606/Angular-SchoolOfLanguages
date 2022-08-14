@@ -1,6 +1,7 @@
 import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Pomocni } from 'src/app/pomocni/pomocni';
 import Swal from 'sweetalert2';
 import { Course } from '../../model/course';
@@ -18,7 +19,8 @@ export class CourseComponent implements OnInit {
   courses: Course[]=[];
   pomocni: Pomocni=new Pomocni();
   
-  constructor(private courseService: CourseService,private dialog: MatDialog) { }
+  constructor(private courseService: CourseService,private dialog: MatDialog,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getCourses();
@@ -47,7 +49,13 @@ export class CourseComponent implements OnInit {
       this.courses=data;
     }, error=>{
       if(error.status==HttpStatusCode.InternalServerError) {
-       console.log("Greska serveera!") 
+       console.log("Greska serveera!")
+       Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: "Server has stopped working!"
+      });
+      this.goToTheStopPage(); 
       }
       console.log(error);
     });
@@ -113,6 +121,6 @@ export class CourseComponent implements OnInit {
   }
 
   goToTheStopPage() {
-    
+    this.router.navigate(['server-error']);
   }
 }

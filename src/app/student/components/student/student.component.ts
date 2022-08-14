@@ -1,6 +1,7 @@
 import { HttpStatusCode } from '@angular/common/http';
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Student } from '../../model/student';
 import { StudentService } from '../../service/student.service';
@@ -12,7 +13,8 @@ import { StudentService } from '../../service/student.service';
 })
 export class StudentComponent implements OnInit {
 
-  constructor(private studentService: StudentService) { }
+  constructor(private studentService: StudentService,
+    private router: Router) { }
   panelOpenState = false;
   students: Student[]=[];
 
@@ -66,6 +68,6 @@ export class StudentComponent implements OnInit {
   }
 
   goToTheStopPage() {
-
+    this.router.navigate(['server-error']);
   }
 }

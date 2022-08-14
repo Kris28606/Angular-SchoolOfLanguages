@@ -8,6 +8,11 @@ import { Student } from '../model/student';
 })
 export class StudentService {
 
+  save(student: Student): Observable<Object> {
+    console.log(student);
+    return this.httpClient.post<Object>(this.baseURL+'/new', student);
+  }
+
   private baseURL;
 
   constructor(private httpClient: HttpClient) {

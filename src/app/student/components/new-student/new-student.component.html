@@ -1,0 +1,25 @@
+<div id="noviStudent">
+    <h1 >New Student</h1>
+    <form>
+        <div class="form-floating mb-2">
+          <label for="inputFirstName">First name</label>
+          <input type="text" class="form-control" id="inputFirstName" name="firstName" [(ngModel)]="student.firstName">
+        </div>
+        <div class="form-floating">
+          <label for="floatinginputLastName">Last name</label>
+          <input type="text" class="form-control" id="floatinginputLastName" name="lastName"  [(ngModel)]="student.lastName">
+        </div>
+        <div class="form-group mb-2 datepicker">
+            <label for="floatingDateOfBirth">Date of birth</label>
+            <input type="date" id="floatingDateOfBirth" class="form-control" name="dateOfBirth" [(ngModel)]="student.datumRodjenja">
+            
+        </div>
+        <div class="form-group mb-2">
+           <div *ngFor="let course of courseList" class="container">
+                <input type="checkbox" name="{{course.name}}" [(ngModel)]="course.isSelected">
+                <label style="display: inline; margin-left: 5px;">{{course.name}}</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="saveStudent()">Save student</button>
+      </form>
+</div>

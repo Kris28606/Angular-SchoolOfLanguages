@@ -3,6 +3,15 @@
     grid-template-columns: repeat(auto-fit,370px);
   }
 
+  #newButton{
+    background-color: #dcacff; 
+    vertical-align: middle;
+    margin-left: 15%;
+    justify-content: center;
+    width: 70%;
+    margin-bottom: 15px;
+}
+
   .item {
     margin: 15px;
     background: #fbf7ff;

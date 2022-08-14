@@ -25,6 +25,7 @@ export class StudentComponent implements OnInit {
   getStudents() {
     this.studentService.getAll().subscribe(data=>{
       this.students=data;
+      console.log(this.students);
     },error=>console.log(error));
   }
 
@@ -65,6 +66,10 @@ export class StudentComponent implements OnInit {
       });
       }
     })
+  }
+
+  openForm() {
+    this.router.navigate(['new-student']);
   }
 
   goToTheStopPage() {

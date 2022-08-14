@@ -27,6 +27,7 @@ import { DatePipe } from '@angular/common';
 import { StudentComponent } from './student/components/student/student.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ServerStopComponent } from './serverError/server-stop/server-stop.component';
+import { NewStudentComponent } from './student/components/new-student/new-student.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ServerStopComponent } from './serverError/server-stop/server-stop.compo
     UpdateModalComponent,
     NewTeacherComponent,
     StudentComponent,
-    ServerStopComponent
+    ServerStopComponent,
+    NewStudentComponent
   ],
   imports: [
     BrowserModule,

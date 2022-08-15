@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CourseComponent } from './course/componenets/course/course.component';
 import { HomeComponent } from './home/home.component';
+import { InvoiceComponent } from './invoice/components/invoice/invoice.component';
 import { ServerStopComponent } from './serverError/server-stop/server-stop.component';
 import { NewStudentComponent } from './student/components/new-student/new-student.component';
 import { StudentComponent } from './student/components/student/student.component';
@@ -32,6 +33,9 @@ const routes: Routes = [
   },
   {
     path: 'new-student', component: NewStudentComponent
+  },
+  {
+    path: 'invoice', component: InvoiceComponent
   }
 ];
 

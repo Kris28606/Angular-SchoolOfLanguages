@@ -1,0 +1,69 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,400px);
+    margin: auto;
+    justify-content: center;
+}
+
+.item {
+    border: 3px black solid;
+    height: minmax(60px,1fr);
+    margin: 20px;
+}
+
+.naslov {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    height: 110px;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+}
+
+#newButton{
+    background-color: #ffe659; 
+    vertical-align: middle;
+    margin-left: 15%;
+    justify-content: center;
+    width: 70%;
+    margin-bottom: 15px;
+}
+
+h1 {
+    justify-content: center;
+    text-align: center;
+    font-size: xx-large;
+    margin: 15px;
+  }
+
+img{
+    justify-content: center;
+    margin: auto;
+    margin-top: 0px;
+    text-align: center;
+  }
+
+  .imePrezime{
+    margin: auto;
+    font-size: xx-large;
+  }
+
+  .buttons button{
+    margin-bottom: 5px;
+  }
+
+  #reverseButton{
+    background-color: #ffe659; 
+  }
+
+  #itemButton{
+    background-color: #48d688;
+    margin-right: 4px;
+  }
+
+  .podaci {
+    padding: 5px;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+  }

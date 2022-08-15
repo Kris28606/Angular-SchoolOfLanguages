@@ -57,7 +57,7 @@
   }
   .kursevi {
     display: grid;
-    height: 60px;
+    height: minmax(60px,1fr);
     justify-content: left;
     align-items: center;
     font-size: larger;

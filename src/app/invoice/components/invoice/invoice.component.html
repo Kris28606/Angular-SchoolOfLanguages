@@ -1,1 +1,24 @@
-<p>invoice works!</p>
+<h1>Invoices</h1>
+<button id="newButton" class="btn">New invoice</button>
+<div class="container" >
+    <div class="item" *ngFor="let invoice of invoices">
+        <div class="naslov">
+            <img src="/assets/images/money.png" alt="image" style="width:95px; height:95px;">
+            <div class="imePrezime">
+                <p>{{invoice.student.firstName}}</p>
+                <p>{{invoice.student.lastName}}</p>
+            </div>
+            <img src="/assets/images/money.png" style="width:95px; height:95px;">
+        </div>
+        <div class="podaci">
+            <p style="font-size: larger">Date: {{invoice.date}}</p>
+            <p style="font-size: larger">Total price: {{invoice.totalPrice}} din</p>
+            <p style="font-size: larger">Payment method: {{invoice.paymentMethod}}</p>
+            <p style="font-size: larger">Reversed: {{invoice.cancelled}}</p>
+            <div class="buttons">
+                <button class="btn" id="itemButton">Invoice items</button>
+                <button class="btn" id="reverseButton">Reverse invoice</button>
+            </div>
+        </div>
+    </div>
+</div>

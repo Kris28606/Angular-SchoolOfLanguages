@@ -28,6 +28,7 @@ import { StudentComponent } from './student/components/student/student.component
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ServerStopComponent } from './serverError/server-stop/server-stop.component';
 import { NewStudentComponent } from './student/components/new-student/new-student.component';
+import { InvoiceComponent } from './invoice/components/invoice/invoice.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { NewStudentComponent } from './student/components/new-student/new-studen
     NewTeacherComponent,
     StudentComponent,
     ServerStopComponent,
-    NewStudentComponent
+    NewStudentComponent,
+    InvoiceComponent
   ],
   imports: [
     BrowserModule,

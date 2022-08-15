@@ -7,7 +7,7 @@ import { Invoice } from '../model/invoice';
   providedIn: 'root'
 })
 export class InvoiceService {
-
+  
   private baseURL;
   constructor(private httpClient: HttpClient) { 
     this.baseURL= "http://localhost:8080/invoice";
@@ -15,5 +15,9 @@ export class InvoiceService {
 
   getAll():Observable<Invoice[]> {
     return this.httpClient.get<Invoice[]>(this.baseURL+"/all");
+  }
+
+  reverseInvoice(id: number): Observable<Object> {
+    return this.httpClient.delete<Object>(`${this.baseURL}/${id}`);
   }
 }

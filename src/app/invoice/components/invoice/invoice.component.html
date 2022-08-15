@@ -16,7 +16,7 @@
             <p style="font-size: larger">Payment method: {{invoice.paymentMethod}}</p>
             <p style="font-size: larger">Reversed: {{invoice.cancelled}}</p>
             <div class="buttons">
-                <button class="btn" id="itemButton">Invoice items</button>
+                <button class="btn" id="itemButton" (click)="openItems(invoice.items)">Invoice items</button>
                 <button class="btn" id="reverseButton" (click)="reverseInvoice(invoice.id)">Reverse invoice</button>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import { InvoiceItem } from "src/app/invoice-item/invoice-item";
+import { InvoiceItem } from "src/app/invoice-item/model/invoice-item";
 import { PaymentMethod } from "src/app/methodOfPayment/method-of-payment";
 import { Student } from "src/app/student/model/student";
 

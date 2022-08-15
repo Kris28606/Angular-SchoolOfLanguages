@@ -1,5 +1,5 @@
-import { Course } from "../course/model/course";
-import { Invoice } from "../invoice/model/invoice";
+import { Course } from "../../course/model/course";
+import { Invoice } from "../../invoice/model/invoice";
 
 export class InvoiceItem {
     invoice!: Invoice;

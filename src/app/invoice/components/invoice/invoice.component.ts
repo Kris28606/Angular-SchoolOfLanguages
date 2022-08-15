@@ -1,6 +1,9 @@
 import { HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { InvoiceItemComponent } from 'src/app/invoice-item/components/invoice-item/invoice-item.component';
+import { InvoiceItem } from 'src/app/invoice-item/model/invoice-item';
 import Swal from 'sweetalert2';
 import { Invoice } from '../../model/invoice';
 import { InvoiceService } from '../../service/invoice.service';
@@ -13,11 +16,17 @@ import { InvoiceService } from '../../service/invoice.service';
 export class InvoiceComponent implements OnInit {
 
   constructor(private invoiceService: InvoiceService,
-    private router: Router) { }
+    private router: Router, private dialog: MatDialog) { }
   invoices: Invoice[]=[];
 
   ngOnInit(): void {
     this.getInvoices();
+  }
+
+  openItems(items: InvoiceItem[]) {
+    const dialogRef = this.dialog.open(InvoiceItemComponent, {
+      data: items
+    });
   }
 
   getInvoices() {

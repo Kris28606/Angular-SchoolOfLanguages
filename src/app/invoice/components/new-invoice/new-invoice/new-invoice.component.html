@@ -1,0 +1,38 @@
+<div id="novaFaktura">
+    <h1>New Invoice</h1>
+    <form>
+        <div class="form-group">
+            <h3 style="margin-bottom: 3px; margin-left: 7px;">Student</h3>
+            <mat-form-field appearance="fill" style="width: 400px">
+              <mat-label>Students</mat-label>
+              <mat-select [(ngModel)]="selectedStudent" name="selectedStudent">
+                <mat-option *ngFor="let student of students" [value]="student">
+                  {{student.firstName}} {{student.lastName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="form-floating mb-2 datepicker">
+            <input type="date" id="floatingStartDate" class="form-control" [(ngModel)]="invoice.date">
+            <label for="floatingStartDate">Date</label>
+          </div>
+        <div class="form-group">
+            <h3 style="margin-bottom: 3px; margin-left: 7px;">Payment method</h3>
+            <mat-form-field appearance="fill" style="width: 400px">
+              <mat-label>Payment methods</mat-label>
+              <mat-select [(ngModel)]="selectedMethod" name="selectedMethod">
+                <mat-option *ngFor="let method of methods" [value]="method">
+                  {{method}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+        <!-- <div class="form-group mb-2">
+           <div *ngFor="let course of courseList" class="container">
+                <input type="checkbox" name="{{course.name}}" [(ngModel)]="course.isSelected">
+                <label style="display: inline; margin-left: 5px;">{{course.name}}</label>
+            </div>
+        </div> -->
+        <button type="submit" class="btn btn-primary">Save invoice</button>
+      </form>
+</div>

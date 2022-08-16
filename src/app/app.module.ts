@@ -30,6 +30,7 @@ import { ServerStopComponent } from './serverError/server-stop/server-stop.compo
 import { NewStudentComponent } from './student/components/new-student/new-student.component';
 import { InvoiceComponent } from './invoice/components/invoice/invoice.component';
 import { InvoiceItemComponent } from './invoice-item/components/invoice-item/invoice-item.component';
+import { NewInvoiceComponent } from './invoice/components/new-invoice/new-invoice/new-invoice.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { InvoiceItemComponent } from './invoice-item/components/invoice-item/inv
     ServerStopComponent,
     NewStudentComponent,
     InvoiceComponent,
-    InvoiceItemComponent
+    InvoiceItemComponent,
+    NewInvoiceComponent
   ],
   imports: [
     BrowserModule,

@@ -50,6 +50,10 @@ export class InvoiceComponent implements OnInit {
     });
   }
 
+  novaFaktura() {
+    this.router.navigate(['new-invoice']);
+  }
+
   reverseInvoice(id: number) {
     Swal.fire({
       title: 'Are you sure?',
@@ -68,8 +72,12 @@ export class InvoiceComponent implements OnInit {
             'success'
             );
           this.getInvoices();
+          },error=> {
+          if(error.status==HttpStatusCode.BadRequest){
+
           }
-      );
+        }
+        ) 
       }
     })
   }

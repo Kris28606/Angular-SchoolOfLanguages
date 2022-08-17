@@ -5,15 +5,15 @@
             <h3 style="margin-bottom: 3px; margin-left: 7px;">Student</h3>
             <mat-form-field appearance="fill" style="width: 400px">
               <mat-label>Students</mat-label>
-              <mat-select [(ngModel)]="selectedStudent" name="selectedStudent">
-                <mat-option *ngFor="let student of students" [value]="student">
+              <mat-select [(ngModel)]="selectedStudent" name="selectedStudent" >
+                <mat-option *ngFor="let student of students" [value]="student" name="ImePrezime" (onSelectionChange)="promeniKurseve(student,$event)">
                   {{student.firstName}} {{student.lastName}}
                 </mat-option>
               </mat-select>
             </mat-form-field>
         </div>
         <div class="form-floating mb-2 datepicker">
-            <input type="date" id="floatingStartDate" class="form-control" [(ngModel)]="invoice.date">
+            <input type="date" id="floatingStartDate" class="form-control" name="date" [(ngModel)]="invoice.date">
             <label for="floatingStartDate">Date</label>
           </div>
         <div class="form-group">
@@ -33,6 +33,30 @@
                 <label style="display: inline; margin-left: 5px;">{{course.name}}</label>
             </div>
         </div> -->
+        <div id="listaKurseva">
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th>Chosen</th>
+                      <th>Name</th>
+                      <th>Price</th>
+                      <th>Start date</th>
+                      <th>End date</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let course of courses">
+                      <td>
+                        <input type="checkbox">
+                      </td>
+                      <td>{{course.name}}</td>
+                      <td>{{course.price}}</td>
+                      <td>{{course.startDate | date: 'dd.MM.yyyy.'}}</td>
+                      <td>{{course.endDate | date:'dd.MM.yyyy.'}}</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
         <button type="submit" class="btn btn-primary">Save invoice</button>
       </form>
 </div>

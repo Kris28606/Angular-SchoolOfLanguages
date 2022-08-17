@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Course } from 'src/app/course/model/course';
 import { Invoice } from 'src/app/invoice/model/invoice';
 import { PaymentMethod } from 'src/app/methodOfPayment/method-of-payment';
 import { MethodOfPaymentService } from 'src/app/methodOfPayment/service/method-of-payment.service';
@@ -18,13 +20,22 @@ export class NewInvoiceComponent implements OnInit {
   methods: PaymentMethod[]=[];
   students: Student[]=[];
   invoice: Invoice=new Invoice();
+  courses: Course[]=[];
 
   constructor(private paymentMethodService: MethodOfPaymentService,
-    private studentServise: StudentService) { }
+    private studentServise: StudentService, private router: Router) { }
 
   ngOnInit(): void {
     this.getPaymentMethods();
     this.getStudents();
+    
+  }
+
+  promeniKurseve(stu: Student,event: any) {
+    
+      if(event.isUserInput) {
+        this.courses=stu.courses;
+      }
     
   }
 

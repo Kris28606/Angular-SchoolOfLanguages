@@ -7,4 +7,5 @@ export class Course {
     price: number=0;
     startDate!: Date;
     endDate!: Date;
+    isSelected: boolean=false;
 }

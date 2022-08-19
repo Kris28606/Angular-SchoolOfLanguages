@@ -32,11 +32,6 @@ export class NewTeacherComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.cityService.getAll().subscribe(data=>{
-      this.cities=data;
-    },error=> {
-      this.error=true;
-    });
     this.courseService.getCourseList().subscribe(data=>{
       this.courses=data;
       this.srediPomocni();
@@ -49,7 +44,7 @@ export class NewTeacherComponent implements OnInit {
       this.isUpdate=true;
       this.teacherService.getOne(this.id).subscribe(data=> {
         this.teacher=data;
-        this.selectedValue=this.teacher.city;
+        this.srediGrad();
         this.podesiKurseve();
       }, error=> {
         this.error=true;
@@ -64,6 +59,20 @@ export class NewTeacherComponent implements OnInit {
       }
     }
   }
+
+  srediGrad() {
+    this.cityService.getAll().subscribe(data=>{
+      this.cities=data;
+      for(let city of this.cities) {
+        if(city.name==this.teacher.city.name) {
+          this.selectedValue=city;
+        }
+      }
+    },error=> {
+      this.error=true;
+    });
+  }
+
 
   goToTheStopPage() {
     this.router.navigate(['server-error']);

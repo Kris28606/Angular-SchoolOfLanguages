@@ -40,6 +40,9 @@ const routes: Routes = [
   },
   {
     path: 'new-invoice', component: NewInvoiceComponent
+  },
+  {
+    path:'', component: HomeComponent
   }
 ];
 

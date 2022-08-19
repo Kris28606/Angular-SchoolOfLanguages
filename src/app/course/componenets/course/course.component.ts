@@ -48,6 +48,14 @@ export class CourseComponent implements OnInit {
     this.courseService.getCourseList().subscribe(data => {
       this.courses=data;
     }, error=>{
+      if(error.status==HttpStatusCode.BadRequest) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Cannot find the courses!!'
+        });
+        return;
+      }
       if(error.status==HttpStatusCode.InternalServerError) {
        console.log("Greska serveera!")
        Swal.fire({

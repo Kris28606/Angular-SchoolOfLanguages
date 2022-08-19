@@ -26,7 +26,22 @@ export class StudentComponent implements OnInit {
     this.studentService.getAll().subscribe(data=>{
       this.students=data;
       console.log(this.students);
-    },error=>console.log(error));
+    },error=>{
+      if(error.status==HttpStatusCode.BadRequest) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Cannot get the students!!'
+        });
+        return;
+      }
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: "Server has stopped working!"
+      });
+      this.goToTheStopPage();
+    })
   }
 
   deleteStudent(id: number) {

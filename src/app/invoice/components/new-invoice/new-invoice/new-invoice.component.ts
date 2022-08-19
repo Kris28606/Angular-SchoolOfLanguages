@@ -119,17 +119,43 @@ export class NewInvoiceComponent implements OnInit {
     this.studentServise.getAll().subscribe(data=>{
       this.students=data;
     }, error => {
-      console.log(error);
-    });
-  }
+      if(error.status==HttpStatusCode.BadRequest) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: "Can't get Students!"
+        });
+        this.goToInvoicePage();
+        return;
+      }
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: "Server has stopped working!"
+      });
+      this.goToTheStopPage();
+  }) }
 
 
   getPaymentMethods() {
     this.paymentMethodService.getAll().subscribe(data=> {
       this.methods=data;
     }, error => {
-      console.log(error);
-    });
-  }
+      if(error.status==HttpStatusCode.BadRequest) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: "Can't get payment methods!"
+        });
+        this.goToInvoicePage();
+        return;
+      }
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: "Server has stopped working!"
+      });
+      this.goToTheStopPage();
+  }) }
 
 }

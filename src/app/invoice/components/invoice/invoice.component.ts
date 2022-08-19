@@ -55,6 +55,17 @@ export class InvoiceComponent implements OnInit {
   }
 
   reverseInvoice(id: number) {
+    this.invoiceService.findOne(id).subscribe(data=> {
+      let inv=data;
+      if(inv.cancelled) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: "Invoice alredy reversed!"
+        });
+        return;
+      }
+    })
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -74,9 +85,22 @@ export class InvoiceComponent implements OnInit {
           this.getInvoices();
           },error=> {
           if(error.status==HttpStatusCode.BadRequest){
-
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "Something went wrong, can't reverse invoice!"
+              });
+              return;
+            }
+            if(error.status==HttpStatusCode.InternalServerError) {
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "Server has stopped working!"
+              });
+              this.goToTheStopPage();
+            }
           }
-        }
         ) 
       }
     })

@@ -30,4 +30,8 @@ export class InvoiceService {
   save(invoice: Invoice): Observable<Object> {
     return this.httpClient.post<Object>(this.baseURL, invoice);
   }
+
+  findOne(id: number): Observable<Invoice> {
+    return this.httpClient.get<Invoice>(`${this.baseURL}/${id}`);
+  }
 }

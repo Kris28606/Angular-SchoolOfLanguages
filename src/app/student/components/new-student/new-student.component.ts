@@ -27,7 +27,21 @@ export class NewStudentComponent implements OnInit {
       this.courses=data;
       this.srediPomocni();
     }, error=> {
-
+      if(error.status==HttpStatusCode.BadRequest) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: "Can't get courses!"
+        });
+        this.goToStudentPage();
+        return;
+      }
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: "Server has stopped working!"
+      });
+      this.goToTheStopPage();
     });
   }
 
@@ -70,7 +84,7 @@ export class NewStudentComponent implements OnInit {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: error.message
+          text: "Coudnt save the student!"
         });
         this.goToStudentPage();
         return;

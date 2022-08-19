@@ -82,6 +82,7 @@ export class NewStudentComponent implements OnInit {
   saveStudent() {
     this.brojac=0;
     this.vratiKurseve();
+    this.student.gender=this.selectedGender;
     console.log(this.student);
     
     this.studentService.save(this.student).subscribe(data=> {

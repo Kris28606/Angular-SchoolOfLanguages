@@ -1,6 +1,8 @@
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit,370px);
+    grid-template-columns: repeat(auto-fit,430px);
+    margin: auto;
+    justify-content: center;
   }
 
   #newButton{

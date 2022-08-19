@@ -2,6 +2,7 @@ import { HttpStatusCode } from '@angular/common/http';
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Gender } from 'src/app/gender/gender';
 import Swal from 'sweetalert2';
 import { Student } from '../../model/student';
 import { StudentService } from '../../service/student.service';
@@ -17,6 +18,8 @@ export class StudentComponent implements OnInit {
     private router: Router) { }
   panelOpenState = false;
   students: Student[]=[];
+  womanGender: Gender=0;
+  manGender: Gender=1;
 
   ngOnInit(): void {
     this.getStudents();
@@ -25,7 +28,10 @@ export class StudentComponent implements OnInit {
   getStudents() {
     this.studentService.getAll().subscribe(data=>{
       this.students=data;
-      console.log(this.students);
+      this.srediStudente();
+      console.log(this.students[0].gender.toString());
+      console.log(Gender.Male.toString());
+      console.log(this.students[0].isMale);
     },error=>{
       if(error.status==HttpStatusCode.BadRequest) {
         Swal.fire({
@@ -42,6 +48,14 @@ export class StudentComponent implements OnInit {
       });
       this.goToTheStopPage();
     })
+  }
+
+  srediStudente() {
+    for(let s of this.students) {
+      if(s.gender.toString()=="Male") {
+        s.isMale=true;
+      }
+    }
   }
 
   deleteStudent(id: number) {

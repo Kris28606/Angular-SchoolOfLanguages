@@ -7,5 +7,4 @@ export class Student {
     years: number=0;
     datumRodjenja!: Date;
     courses: Course[]=[];
-    slika: String='';
 }

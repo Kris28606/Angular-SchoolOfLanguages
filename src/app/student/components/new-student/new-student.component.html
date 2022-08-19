@@ -9,6 +9,17 @@
           <label for="floatinginputLastName">Last name</label>
           <input type="text" class="form-control" id="floatinginputLastName" name="lastName"  [(ngModel)]="student.lastName">
         </div>
+        <div class="form-group">
+          <h3 style="margin-bottom: 3px; margin-left: 7px;">Gender</h3>
+          <mat-form-field appearance="fill" style="width: 483px">
+            <mat-label>Genders</mat-label>
+            <mat-select [(ngModel)]="selectedGender" name="selectedGender">
+              <mat-option *ngFor="let gender of genders" [value]="gender">
+                {{gender}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+      </div>
         <div class="form-group mb-2 datepicker">
             <label for="floatingDateOfBirth">Date of birth</label>
             <input type="date" id="floatingDateOfBirth" class="form-control" name="dateOfBirth" [(ngModel)]="student.datumRodjenja">

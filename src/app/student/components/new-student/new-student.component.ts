@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Course } from 'src/app/course/model/course';
 import { CourseService } from 'src/app/course/service/course.service';
+import { Gender } from 'src/app/gender/gender';
+import { GenderService} from 'src/app/gender/gender.service.service';
 import Swal from 'sweetalert2';
 import { Student } from '../../model/student';
 import { StudentService } from '../../service/student.service';
@@ -16,13 +18,25 @@ import { StudentService } from '../../service/student.service';
 export class NewStudentComponent implements OnInit {
 
   constructor(private courseService: CourseService, private studentService: StudentService,
-    private router: Router) { }
+    private router: Router, private genderService: GenderService) { }
   student: Student=new Student();
   courseList: pomocni[]=[];
   courses: Course[]=[];
   brojac: number=0;
+  selectedGender: Gender=0;
+  genders: Gender[]=[];
 
   ngOnInit(): void {
+    this.genderService.getAll().subscribe(data=> {
+      this.genders=data;
+    }, error=> {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: "Server has stopped working!"
+      });
+      this.goToTheStopPage();
+    });
     this.courseService.getCourseList().subscribe(data=> {
       this.courses=data;
       this.srediPomocni();
@@ -69,7 +83,7 @@ export class NewStudentComponent implements OnInit {
     this.brojac=0;
     this.vratiKurseve();
     console.log(this.student);
-    this.student.slika="https://www.kindpng.com/picc/m/269-2697881_computer-icons-user-clip-art-transparent-png-icon.png";
+    
     this.studentService.save(this.student).subscribe(data=> {
       Swal.fire({
         position: 'center',

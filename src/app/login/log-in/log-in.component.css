@@ -1,0 +1,26 @@
+#logIn {
+    width: 500px;
+    justify-content: center;
+    margin: auto;
+    border: 3px black solid;
+    padding: 15px;
+    background-color: rgb(127, 206, 209);
+}
+
+.pozadina {
+    background-color: rgb(170, 229, 231);
+    height: 100%;
+    padding-top: 120px;
+}
+
+h1{
+    text-align: center;
+}
+
+button {
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+    background-color: rgb(119, 119, 207);
+    color: white;
+}

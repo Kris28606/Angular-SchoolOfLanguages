@@ -31,6 +31,8 @@ import { NewStudentComponent } from './student/components/new-student/new-studen
 import { InvoiceComponent } from './invoice/components/invoice/invoice.component';
 import { InvoiceItemComponent } from './invoice-item/components/invoice-item/invoice-item.component';
 import { NewInvoiceComponent } from './invoice/components/new-invoice/new-invoice/new-invoice.component';
+import { AuthGuardGuard } from './guards/auth-guard.guard';
+import { LogInComponent } from './login/log-in/log-in.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { NewInvoiceComponent } from './invoice/components/new-invoice/new-invoic
     NewStudentComponent,
     InvoiceComponent,
     InvoiceItemComponent,
-    NewInvoiceComponent
+    NewInvoiceComponent,
+    LogInComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,7 @@ import { NewInvoiceComponent } from './invoice/components/new-invoice/new-invoic
     DatePipe,
     MatExpansionModule
   ],
-  providers: [],
+  providers: [AuthGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

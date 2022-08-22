@@ -1,0 +1,16 @@
+<div class="pozadina">
+    <div id="logIn">
+        <h1>Log in</h1>
+        <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" [(ngModel)]="user.username">
+        <label for="floatingInput">Username</label>
+    </div>
+    <div class="form-floating mb-2">
+        <input type="text" class="form-control"  id="floatingPassword" [(ngModel)]="user.password">
+        <label for="floatingPassword">Password</label>
+    </div>
+    <div class="form-floating mb-2">
+        <button id="saveButton" class="btn" (click)="logIn()">Log in</button>
+    </div>
+    </div>
+</div>

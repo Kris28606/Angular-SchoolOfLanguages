@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthGuardGuard } from 'src/app/guards/auth-guard.guard';
 
 @Component({
   selector: 'app-sidenav',
@@ -9,9 +10,14 @@ export class SidenavComponent implements OnInit {
   
   opened=false;
 
-  constructor() { }
+  constructor(private authService: AuthGuardGuard) { }
 
   ngOnInit(): void {
   }
 
+  open() {
+    if(this.authService.auth) {
+      this.opened=!this.opened;
+    }
+  }
 }

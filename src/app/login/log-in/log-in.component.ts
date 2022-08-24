@@ -21,7 +21,6 @@ export class LogInComponent implements OnInit {
 
 
   logIn() {
-    console.log(this.user);
     if(this.user.username!="" && this.user.username!=null && this.user.password!="" && this.user.password!=null) {
       this.userService.logIn(this.user).subscribe(data=> {
         this.userService.isAuthenticated=true;
@@ -34,7 +33,6 @@ export class LogInComponent implements OnInit {
           timer: 1500
         });
         this.user=new User();
-        console.log(this.userService.isAuthenticated);
         this.router.navigate(['home']);
       }, error=> {
         if(error.status==HttpStatusCode.BadRequest) {

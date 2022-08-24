@@ -14,6 +14,9 @@ import { TeacherComponent } from './teacher/components/teacher.component';
 
 const routes: Routes = [
   {
+    path: '', redirectTo: '/login', pathMatch: 'full' ,
+  },
+  {
     path: 'home', component: HomeComponent, canActivate: [AuthGuardGuard]
   },
   {
@@ -45,10 +48,8 @@ const routes: Routes = [
   },
   {
     path: 'login', component: LogInComponent
-  },
-  {
-     path: '', pathMatch: 'full', redirectTo: 'login' ,
   }
+  
 ];
 
 @NgModule({

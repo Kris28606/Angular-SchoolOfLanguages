@@ -24,7 +24,6 @@ export class TeacherComponent implements OnInit {
   getAllTeachers() {
     this.teacherService.getTeacherList().subscribe(data => {
       this.teachers=data;
-      console.log("Pokupio predavace");
       this.srediKurseve();
     }, error=>{
       Swal.fire({

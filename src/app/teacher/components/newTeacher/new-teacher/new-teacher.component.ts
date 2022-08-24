@@ -39,6 +39,11 @@ export class NewTeacherComponent implements OnInit {
     }, error=> {
       this.error=true;
     });
+    this.cityService.getAll().subscribe(data=>{
+      this.cities=data;
+    },error=> {
+      this.error=true;
+    });
     this.id=this.route.snapshot.params['id'];
     if(this.id!=undefined) {
       this.isUpdate=true;
@@ -125,7 +130,7 @@ export class NewTeacherComponent implements OnInit {
       for(let j=0;j<this.courseList.length;j++) {
         if(this.teacher.courses[i].name==this.courseList[j].name) {
           this.courseList[j].isSelected=true;
-        }
+        } 
       }
     }
     return this.courseList;
@@ -141,6 +146,7 @@ export class NewTeacherComponent implements OnInit {
         }
       }
     }
+    console.log(this.kursevi);
     return this.kursevi;
   }
 
